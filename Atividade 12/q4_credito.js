@@ -7,8 +7,8 @@ function credito(){
     let montate = p * Math.pow((1), t) // Uso juros composto para um montate de cada mês
     if(montate <= c){ // Condiciono a existência do montante
         while(montate <= c || (montate - c) < 0) { // Condiciono o montante em relação em c para ele sempre calcular o novo montante e o novo saldo devedor
-            console.log(`Extrato do mês ${t}° novo saldo: ${Math.round(c-p)}`) // Saída do novo Saldo
-            console.log(`Saldo Anterior: ${Math.round(c)}`) // Saída do Saldo Antigo
+            console.log(`Extrato do mês ${t}° novo saldo: ${(c-p).toFixed(2)}`) // Saída do novo Saldo
+            console.log(`Saldo Anterior: ${c.toFixed(2)}`) // Saída do Saldo Antigo
             let juros = (c - p) * 0.01 // Formulá do Juros
             c = ((c-p)*1.01) // Formula do novo valor do Emprestimo - Parcela * juros
         console.log(`Juros: ${Math.round(juros)}`) // Saída do Juros do Mês
