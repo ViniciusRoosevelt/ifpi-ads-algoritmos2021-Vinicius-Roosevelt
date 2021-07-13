@@ -1,15 +1,22 @@
-const prompt = require('prompt-sync')
-function credito(){
-    let c = Number(prompt('Qual empréstimo deseja:41000 , 60000 ou 81000  : '))
-    const p = Number(prompt('Qual parcela deseja: 1000,1200,1500: '))
-    let t = 1
-    let montate = p * Math.pow((1), t)
-    if(montate <= c){
-        for((montate =p * Math.pow((1), t));(montate < c);(t++)){
-            c = ((c-p)*1.01)
-            let juros = c * 0.01
-            console.log(`${t}° mês saldo devedor ${Math.round(c)}`)
-            console.log(`${juros} do mês ${t}°`)
-        }
-    }
-}credito()
+/* Leia um número e divida-o por dois (sucessivamente) até que o resultado seja menor que 1. Escreva o
+resultado da última divisão efetuada. */
+const prompt = require('prompt-sync')()
+function main(){
+    console.log('### Divisão por 2')
+    const n = Number(prompt('Insira um número: '))
+    // Processamento
+    let div = n/2
+    let x = 1
+if(n >1){
+    while(div >= 1){
+    div = div /2
+    x++
+console.log(`${x}° divisão de ${n} por 2 até que essa divisão seja menor que 1 tem resultado ${div}`) // Saída 1
+    
+}
+}else if(n == 1){
+    console.log('Você não pode inserir 1 pq sempre 1 /2 = 0.5') // Saida 2
+}else{
+    console.log('Você não pode inserir 0 porque sempre 0 /2 = 0') // Saida 3
+}
+}main()
