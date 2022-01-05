@@ -9,11 +9,12 @@
 </head>
 <body>
     <header>
-        <form action="form">
-            <input type="text" placeholder="Search" id="search" class="search">
+        <form id="form">
+            <input type="text" placeholder="Procurar" id="search" class="search">
         </form>
     </header>
-        <Main id="main">
+    <div id="tags"></div>
+        <main id="main">
             <div class="movie">
                 <img src="#" alt="Image">
 
@@ -54,7 +55,12 @@
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia sint necessitatibus itaque fugiat cum, ratione sit mollitia soluta maiores sed?
                 </div>
             </div>
-        </Main>
+        </main>
+        <div class="pagination">
+            <div class="page disable" id="prev">Página Anterior</div>
+            <div class="current" id="current">1</div>
+            <div class="page" id="next">Proxima Página</div>
+        </div>
 
     <script src="script.js"></script>
 </body>
