@@ -1,0 +1,35 @@
+Boas Práticas de HTML E CSS
+
+
+Visualização em blocos - Ajuda na compreensão e visualização do que cada bloco vai tornar
+Aspas Duplas - Regra da SGML(Standard Generalized Markup Language).
+<div class="aspasduplas">
+Indentação - Elementos dentro de outros elementos DEVEM SER INDENTADOS.
+Por favor, não se esqueçam nunca disso.
+
+
+CSS
+Use de seletores não necessários
+<body id=”error”>
+
+
+Id ou Class?
+Prefira class. Sempre.
+Isso torna seu código mais fácil de ser atualizado e reutilizado.
+ID é algo muito engessado. Você não pode ter mais de um e não pode repeti-lo, a class você pode definir agora para um elemento e depois adicionar em outro elemento que precise.
+Você pode criar uma class que tenha um CSS muito utilizado em vários elementos e depois utilizar outras classes para especificar outras coisas desse elemento.
+
+Redundância
+<div>
+  <button>
+</div>
+
+Aí você seta a mesma cor para div e o button , mesmo sabendo que por herança o button recebe a cor
+
+Hexadecimal - Para o computador não precisar tem que codificar o código de alguma cor exemplo branco que pode ser apenas #fffff
+
+
+
+
+Link do Vídeo: https://drive.google.com/file/d/19-Yy5ze8q_sObXHChQdAdcC1KERBiybE/view?usp=sharing
+
