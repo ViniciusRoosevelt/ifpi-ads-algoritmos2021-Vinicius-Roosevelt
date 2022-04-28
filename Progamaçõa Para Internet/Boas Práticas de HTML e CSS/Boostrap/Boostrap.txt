@@ -1,2 +1,0 @@
-Atividade boostrap
-1) Primeiro eu coloquei a div cointainer para encapsular todo o site e aí criei o header,div(que vai conter as columnas de main e ascine) e finalizei com o footer
