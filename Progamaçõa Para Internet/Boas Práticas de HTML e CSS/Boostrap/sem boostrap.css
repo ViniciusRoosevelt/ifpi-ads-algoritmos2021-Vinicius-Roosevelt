@@ -1,0 +1,50 @@
+body { font: 11px arial; }
+.container{
+width: 800px; margin: auto;
+color: black;
+border: 1px solid gray;
+}
+header, nav, main,
+footer { padding: 10px; }
+header {
+background-color: green;
+border-bottom: 1px solid gray;
+}
+nav{
+float: left; width: 130px;
+background-color: #dddddd;
+}
+main {
+float: left; width: 470px;
+background-color: white;
+}
+footer {
+clear: both;
+background-color: #dddddd;
+border-top: 1px solid gray;
+}
+
+
+.mais-dentro{
+    float: right; width: auto   ;
+background-color: #dddddd;
+}
+
+
+.mais-fora{
+    float: left; width: 150px; height: 100%;
+background-color: #dddddd;
+}
+
+a{
+    text-decoration: none;
+    color: green;
+}
+li{
+    list-style-type: none;
+}
+
+
+.Footer{
+ text-align: center;
+}
