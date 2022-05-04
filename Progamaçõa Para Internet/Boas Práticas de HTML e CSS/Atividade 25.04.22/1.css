@@ -1,0 +1,86 @@
+h1, h2 {
+	font-family: "Open Sans Condensed", "Arial", sans-serif;
+}
+
+
+
+.title{
+    text-align: center;
+	background-color: #851944;
+	color: #FFF;
+	border: 4px solid #000;
+}
+
+
+
+
+.card-left-information aside{
+    float: right;
+    background-color: #3C1D3D;
+	color: #F2FFFC;
+    text-decoration: none;
+    border: 4px solid #000;
+
+}
+
+.card-left-information a{
+        color: #F2FFFC;
+        text-decoration: none;
+        color: inherit;
+}
+
+.card-left-information li {
+    list-style-type: none;
+    display: inline;
+    color: inherit;
+	font-family: "Open Sans Condensed", sans-serif;
+    font-size: 30;
+}
+
+.centralizar{
+	text-align: center;
+}
+
+.card-left-information .img-rosto{
+    border: 4px solid #000;
+}
+
+
+body{
+    background-color: #F2FFFC;
+}
+
+.card-right{
+    float: right;
+    background-color: #D9E5E3;
+	border-radius: 5px;
+    box-shadow: 7px 7px 13px 0px rgba(0, 0, 0, 0.22);
+    padding: 30px;
+    margin: 20px;
+    width: 200px;
+    border: 10px solid #242424;
+    text-decoration: none;
+    
+}
+.card-left{
+    float: left;
+    background-color: #D9E5E3;
+	border-radius: 5px;
+    box-shadow: 7px 7px 13px 0px rgba(0, 0, 0, 0.22);
+    padding: 40px;
+    margin: 20px;
+    width: 200px;
+    border: 10px solid #242424;
+    text-decoration: none;
+    
+}
+
+.final{
+    margin-top: 240px;
+    text-align: start;
+}
+
+p{
+    font-family: "Crimson Text", "Times New Roman", serif;
+    font-size: 120%;
+}
