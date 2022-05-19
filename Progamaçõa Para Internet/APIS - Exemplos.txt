@@ -1,0 +1,18 @@
+https://deckofcardsapi.com
+Api de Cartas
+Embaralhar as cartas:
+Esse deck_count altera o número de decks que desejamos usar
+https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1
+Tirar uma Carta:
+A váriavel count define quantas cartas tirar do baralho, o deck_id deve ser válido , usando como identificador para sabermos quem está jogando com qual deck
+ em deck id substituimos por new para comprar as cartas de um baralho
+https://deckofcardsapi.com/api/deck/<<deck_id>>/draw/?count=2
+Fake Dados
+https://jsonplaceholder.typicode.com
+/post - 100 post
+/comments - 500 comments
+/albums - 100 albumns
+https://pokeapi.co/api/v2/
+Recebe um número da pokedex e imagem dos pokemon
+
+
