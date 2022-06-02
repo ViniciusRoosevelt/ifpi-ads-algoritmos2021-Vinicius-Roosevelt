@@ -47,7 +47,7 @@ routes.delete('/postagem/:id', (req,res) => {
      res.json(Postagens);
 
 })
-
+    
 
 
 module.exports = routes;
