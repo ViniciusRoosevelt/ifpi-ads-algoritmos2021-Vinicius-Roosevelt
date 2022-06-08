@@ -10,8 +10,9 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-const Post = db.collection('posts');
+const Post = db.collection('posts')
 module.exports= Post;
+module.exports= db;
 
 /*
 db.collection('posts').add({
