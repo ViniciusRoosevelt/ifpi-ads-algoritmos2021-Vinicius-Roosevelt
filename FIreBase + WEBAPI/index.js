@@ -20,26 +20,39 @@ app.get("/" , async(req,res) => {
     const list = snapshot.docs.map((doc) =>({post:doc.data() })) // Map para tratamento e encontar os dados
     res.send(list);
 });
+// Receive Posts 
+
+app.get("/timestamp" , async(req,res) => {
+    const snapshot = await db.collection('posts').orderBy('timestamp','sc').get();
+    //  const ids = snapshot.docs.map((docs) =>docs.id) // Pegar os ids
+    //  console.log(ids);
+      const list = snapshot.docs.map((doc) =>({post:doc.data() })) // Map para tratamento e encontar os dados
+      res.send(list);
+}); 
 
 app.get("/:id" , async(req,res) => {
     const id = parseInt(req.params.id)
     const snapshot = await  db.collection('posts').where('id' ,'==', id).get()
     
-    if(snapshot.empty) {
-        res.send({msg:`Not found Post ${id}`})
-        return;
-    }
-     const list = snapshot.docs.map( (doc) => ({...doc.data()}))
-    res.send(list); 
+  //  if(snapshot.empty) {
+   //     res.send({msg:`Not found Post ${id}`})
+    //    return;
+   // } else if (snapshot != snapshot.empty) {
+        const list = snapshot.docs.map( (doc) => ({post:doc.data()}))
+        res.send(list); 
+  //  }
+     
 });
 
 
 // Pegando pelo timestamp
 app.get("/timestamp" , async(req,res) => {
-    const snapshot = await db.collection('posts').orderBy('timestamp', 'asc').get()
-    const list = snapshot.docs.map((doc) =>({id: doc.id, ...doc.data()})) // Map para tratamento e encontar os dados
+    const snapshot = await db.collection('posts').get();
+  //  const ids = snapshot.docs.map((docs) =>docs.id) // Pegar os ids
+  //  console.log(ids);
+    const list = snapshot.docs.map((doc) =>({post:doc.data() })) // Map para tratamento e encontar os dados
     res.send(list);
-});
+});  
 
 
 
@@ -70,10 +83,16 @@ app.put('/update',async (req,res)=>    {
 });
 
 // Delete Posts pelo id
-app.delete('/delete/:id',async (req,res)=>    {
+app.delete('/del/:id',async (req,res)=>    {
     const id = parseInt(req.params.id)
-    await db.collection('posts').where('id' ,'==', id).get();
-   res.send({msg:"Deleted"})
+    const snapshot = await db.collection('posts').where('id' ,'==', id).get()
+   const list = snapshot.docs.map( (doc) => (doc.id))
+    const ids = list.toString()
+  
+   await db.collection('posts').doc(ids).delete()
+    
+ //  console.log(resposta)
+   res.send({msg: 'Post Deleted'})
 });
 
 
