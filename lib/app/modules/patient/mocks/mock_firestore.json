@@ -1,0 +1,70 @@
+{
+  "usuarios": {
+    "1A2B": {
+      "celular": "86999899399",
+      "cep": "64865000",
+      "cpf": "10020030040",
+      "dadosConta": "/pacientes/5678",
+      "dataNascimento": "2012-04-23T18:25:43.511Z",
+      "fotoPerfil": "https://this-person-does-not-exist.com/img/avatar-650521a90c8e3bd976b857db5f6fbe57.jpg",
+      "isAdmin": false,
+      "isFono": false,
+      "nome": "Antonio Nunes",
+      "telefone": "8635444518"
+    },
+    "3C4D": {
+      "celular": "86994472379",
+      "cep": "64865000",
+      "cpf": "60070080090",
+      "dadosConta": "/fonoaudiologos/1234",
+      "dataNascimento": "1998-02-12T18:25:43.511Z",
+      "fotoPerfil": "https://media-exp1.licdn.com/dms/image/C4E03AQFfbYU71NEAKQ/profile-displayphoto-shrink_800_800/0/1650090794921?e=1655942400&v=beta&t=BOnZXHTwdhukRXxALvirWcz_iCrtLWkruTxGsXzuX0I",
+      "isAdmin": true,
+      "isFono": true,
+      "nome": "Bruno Mendes",
+      "telefone": "8635671433"
+    }
+  },
+  "fonoaudiologos": {
+    "1234": {
+      "descricao": "Sou um fono legal",
+      "pacientes": [
+        "/pacientes/4567"
+      ]
+    }
+  },
+  "pacientes": {
+    "5678": {
+      "dataDeInicio": "2022-04-24T18:25:43.511Z",
+      "meuFonoaudiologo": "/fonoaudiologos/1234",
+      "tentativasAtividades": {
+        "01": {
+          "atividade": "/licoes/1/atividades/1",
+          "data": "2022-04-24T18:25:43.511Z",
+          "nota": "45.0",
+          "quantidadeGravacoes": "1"
+        }
+      }
+    }
+  },
+  "licoes": {
+    "l1": {
+      "titulo": "Vogais",
+      "corpo": "Treine as Vogais",
+      "atividades": {
+        "a1": {
+          "corpo": "Hora de treinar a vogal A",
+          "titulo": "Vogal A"
+        },
+        "a2": {
+          "corpo": "Hora de treinar a vogal É",
+          "titulo": "Vogal É"
+        }, 
+        "a3": {
+          "corpo": "Hora de treinar a vogal Ê",
+          "titulo": "Vogal Ê"
+        }
+      }
+    }
+  }
+}
