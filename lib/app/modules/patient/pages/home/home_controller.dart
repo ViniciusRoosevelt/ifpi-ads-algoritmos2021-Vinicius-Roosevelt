@@ -21,9 +21,9 @@ class HomeController {
 
   late Patient patient;
   late Future<DocumentSnapshot<Map<String, dynamic>>> meuFonoaudiologo;
-  late CollectionReference todosFonos;
 
   late Future<QuerySnapshot<Map<String, dynamic>>> lesson;
+  late Map<String, dynamic> list = Map();
 
   late List lessonsId = [];
 
@@ -91,6 +91,12 @@ class HomeController {
           if (key == 'isPremium') {
             if (ValueKey == false) {
               isPremium.value = false;
+              /*  firestore
+              .collection('usuarios')
+              .doc(user)
+              .update({'meuFonoaudiologo': 'vazio/fono'});
+              Campo meuFonoaudiologo atualiza para vazio
+               */
             } else {
               isPremium.value = true;
             }
@@ -104,7 +110,13 @@ class HomeController {
 
   getFonos() {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
-    todosFonos = firestore.collection('usuarios');
-    print(todosFonos.get());
+    late Future<QuerySnapshot<Map<String, dynamic>>> snapshot =
+        firestore.collection('usuarios').where('isFono', isEqualTo: true).get();
+    snapshot.then((value) {
+      value.docs.forEach((e) {
+        list = e.data();
+      });
+    });
+    return list;
   }
 }

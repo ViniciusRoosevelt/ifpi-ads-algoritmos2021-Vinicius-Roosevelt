@@ -18,7 +18,7 @@ class ResponsibleDoctor extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(2.0),
       child: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -53,7 +53,7 @@ class ResponsibleDoctor extends StatelessWidget {
               child: Row(
                 children: [
                   Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(4.0),
                       child: doctor!.fotoPerfil!.isNotEmpty
                           ? CircleAvatar(
                               backgroundImage:

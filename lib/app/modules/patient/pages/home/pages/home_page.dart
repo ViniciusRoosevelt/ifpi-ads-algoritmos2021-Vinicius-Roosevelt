@@ -36,57 +36,53 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
     controller.getLessonList();
     controller.getDoctor(meuFono);
     controller.getPremium();
+    controller.getFonos();
   }
 
   @override
   Widget build(BuildContext context) {
     // var data = Modular.args.data;
-
+    print(controller.getFonos());
     Patient user = Patient.fromJson(data);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      appBar: _appBar(height, user.nome ?? ''),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView(
-          addAutomaticKeepAlives: false,
-          //mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            LastLessons(
-              patient: user,
-            ),
-            FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
-                future: controller.meuFonoaudiologo,
-                builder: (context, snapshot) {
-                  if (!snapshot.hasData) {
-                    return const SimpleLoaderWidget(
-                      key: Key('lessonLoader'),
-                    );
-                  } else {
-                    if (controller.isPremium.value == false) {
-                      return RxBuilder(builder: (_) {
+    return RxBuilder(builder: (_) {
+      return Scaffold(
+        appBar: _appBar(height, user.nome ?? ''),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView(
+            addAutomaticKeepAlives: false,
+            //mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              LastLessons(
+                patient: user,
+              ),
+
+              FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+                  future: controller.meuFonoaudiologo,
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) {
+                      return const SimpleLoaderWidget(
+                        key: Key('lessonLoader'),
+                      );
+                    } else {
+                      if (controller.isPremium.value == false) {
                         return _PatientPremium(
                             controller.isPremium.value, width, height);
-                      });
-                    } else {
-                      return RxBuilder(
-                        builder: (_) {
-                          var doctorData = snapshot.data!.data();
-
-                          print('DOCTOR DATA: ${doctorData}');
-                          Doctor doctor = Doctor.fromJson(doctorData!);
-
-                          return ResponsibleDoctor(
-                            doctor: doctor,
-                          );
-                        },
-                      );
+                      } else {
+                        var doctorData = snapshot.data!.data();
+                        print('DOCTOR DATA: ${doctorData}');
+                        Doctor doctor = Doctor.fromJson(doctorData!);
+                        return ResponsibleDoctor(
+                          doctor: doctor,
+                        );
+                      }
                     }
-                  }
-                }),
-            /*     FutureBuilder(
+                  }),
+
+              /*     FutureBuilder(
                 future: controller.todosFonos,
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
@@ -97,18 +93,19 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                     return Container();
                   }
                 }), */
-            // const AccessRanking(
-            //   rankingTitle: 'Ranking Geral:',
-            //   rankingRoute: '/ranking/ranking-geral',
-            // ),
-            // const AccessRanking(
-            //   rankingTitle: 'Ranking por Lição:',
-            //   rankingRoute: '/ranking/ranking-licao',
-            // ),
-          ],
+              // const AccessRanking(
+              //   rankingTitle: 'Ranking Geral:',
+              //   rankingRoute: '/ranking/ranking-geral',
+              // ),
+              // const AccessRanking(
+              //   rankingTitle: 'Ranking por Lição:',
+              //   rankingRoute: '/ranking/ranking-licao',
+              // ),
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 
   _appBar(
@@ -125,11 +122,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             ),
           ),
           title: _title(_splitfirtsname(name), height),
-          actions: [
-            RxBuilder(builder: (_) {
-              return _isPremium(controller.getPremium());
-            })
-          ]);
+          actions: [_isPremium(controller.getPremium())]);
 
   _title(String name, double height) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
